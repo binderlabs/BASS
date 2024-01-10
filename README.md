@@ -2,7 +2,7 @@
 
 BinderLabs API Security Simulator - a vulnerable API application designed to help users understand OWASP top 10 API security risks. 
 
-BASS is built with <!-- fill in framework or programming language here -->, fore more info about BASS, please check the [overview](FILL THE URL HERE).<!-- The overview explains more in details about how the simualtor works, for example it is a shopping website etc. -->
+BASS is built with ...<!-- fill in framework or programming language here -->, for more info about BASS, please check the [overview](FILL THE URL HERE).<!-- The overview explains more in details about how the simualtor works, for example it is a shopping website etc. -->
 
 
 ## Install
