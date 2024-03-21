@@ -8,7 +8,19 @@ Binderlabs API Security Simulator (BASS-Env) is a vulnerable API environment tha
 - PHP 
 - Mysql
 - Postman Client
+  
+```
+git clone https://github.com/binderlabs/BASS.git
+cd BASS/database
 
+login into mysql and create db name "bass"
+
+mysql -u [username] -p [database_name] < bass.sql
+
+cd BASS/BASS_Env
+php artisan serve --host={{hostip}} --port=8000
+
+```
 
 # Binderlabs API Security Scanner (BASS-Scanner)
 
