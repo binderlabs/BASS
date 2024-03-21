@@ -1,8 +1,6 @@
-# BASS
+# Binderlabs API Security Simulator (BASS-Env)
 
-BinderLabs API Security Simulator - a vulnerable API application designed to help users understand OWASP top 10 API security risks. 
-
-BASS is built with ...<!-- fill in framework or programming language here -->, for more info about BASS, please check the [overview](FILL THE URL HERE).<!-- The overview explains more in details about how the simualtor works, for example it is a shopping website etc. -->
+Binderlabs API Security Simulator (BASS-Env) is a vulnerable API environment that is susceptible to the OWASP Top 10 API Security Risk – 2023. The environment was deliberately designed with API flaws and as a practice ground for cybersecurity professionals who wishes to hands-on their API hacking skills and enhance their knowledge in API Security testing domain.
 
 
 ## Install
@@ -12,9 +10,21 @@ BASS is built with ...<!-- fill in framework or programming language here -->, f
 - Postman Client
 
 
-# BinderAPI Scanner
+# Binderlabs API Security Simulator (BASS-Scanner)
 
-BinderAPI Scanner is a scanning tool that focus on discovery of OWASP Top 10 API security risks. Some capabilities of this tool are outlined as follow.
+The BASS-Scanner toolkit is design to aid cyber security professionals in API Security Testing. BASS-Scanner will identify security flaws pertaining to OWASP Top 10 API Security and more. It will also significantly reduce testing time for security professionals such as a Penetration tester during an API Pentest engagement.
+
+## Requirements
+
+
+1. Install the dependencies with:
+```
+git clone https://github.com/binderlabs/BASS.git
+cd BASS/BASS_Scanner
+pip3 install -r requirements.txt
+```
+
+2. Chrome browser to detect SSRF attacks.
 
 ## Features
 
@@ -29,10 +39,6 @@ BinderAPI Scanner is a scanning tool that focus on discovery of OWASP Top 10 API
 * Token Analysis: Evaluate the strength of authentication tokens and identify potential weaknesses in token handling mechanisms.
 * Access Control Checks: Analyze API endpoints to ensure proper access controls are in place, preventing unauthorized access.
 
-
-## Install
-
-Under construction…
 
 ## Usage
 
