@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: BinderLabs API Security Simulator
-  description: BASS is designed to help you understand and practice dealing with various API security scenarios based on OWASP API Top 10.
+  description: Binderlabs API Security Simulator (BASS-Env) is a vulnerable API environment that is susceptible to the OWASP Top 10 API Security Risk – 2023. The environment was deliberately designed with API flaws and as a practice ground for cybersecurity professionals who wishes to hands-on their API hacking skills and enhance their knowledge in API Security testing domain.
   version: 1.0.0
   contact: {}
 servers:
@@ -23,23 +23,23 @@ paths:
               properties:
                 email:
                   type: string
-                  example: carlos1888@email.com
+                  example: carlos188918@email.com
                 name:
                   type: string
-                  example: Carlos Jeff
+                  example: Carlos Jeff X
                 password:
                   type: string
                   example: aW2y#11wvf
                 username:
                   type: string
-                  example: carlos11
+                  example: carlos199
             examples:
               Create User:
                 value:
-                  email: carlos1888@email.com
-                  name: Carlos Jeff
+                  email: carlos188918@email.com
+                  name: Carlos Jeff X
                   password: aW2y#11wvf
-                  username: carlos11
+                  username: carlos199
       responses:
         '200':
           description: ''
@@ -88,23 +88,23 @@ paths:
               properties:
                 email:
                   type: string
-                  example: valen1341@test.com
+                  example: johnzdoe@test111.com
                 name:
                   type: string
-                  example: valens11aix34
+                  example: John Doe Z
                 password:
                   type: string
-                  example: valen4123
+                  example: john123$!
                 username:
                   type: string
-                  example: vale11n143
+                  example: johndoe133
             examples:
               Update User:
                 value:
-                  email: valen1341@test.com
-                  name: valens11aix34
-                  password: valen4123
-                  username: vale11n143
+                  email: johnzdoe@test111.com
+                  name: John Doe Z
+                  password: john123$!
+                  username: johndoe133
       responses:
         '200':
           description: ''
@@ -125,15 +125,15 @@ paths:
               properties:
                 email:
                   type: string
-                  example: ''
+                  example: andrewgh@yahoo.com
                 password:
                   type: string
-                  example: ''
+                  example: M6tny_DU
             examples:
               User Login:
                 value:
-                  email: ''
-                  password: ''
+                  email: andrewgh@yahoo.com
+                  password: M6tny_DU
       responses:
         '200':
           description: ''
@@ -168,19 +168,19 @@ paths:
               properties:
                 name:
                   type: string
-                  example: demo
+                  example: John Doe Z
                 password:
                   type: string
-                  example: demo1
+                  example: demo11
                 username:
                   type: string
-                  example: demo
+                  example: john1337z
             examples:
               Create User:
                 value:
-                  name: demo
-                  password: demo1
-                  username: demo
+                  name: John Doe Z
+                  password: demo11
+                  username: john1337z
       responses:
         '200':
           description: ''
@@ -277,27 +277,27 @@ paths:
               properties:
                 address:
                   type: string
-                  example: ABC
+                  example: localhost
                 mobileno:
                   type: string
-                  example: '888888888'
+                  example: '6513371337'
                 name:
                   type: string
-                  example: Test User
+                  example: John Doe
                 password:
                   type: string
-                  example: test123
+                  example: john@#1
                 username:
                   type: string
-                  example: testuser2
+                  example: johndoe1993
             examples:
               Create User:
                 value:
-                  address: ABC
-                  mobileno: '888888888'
-                  name: Test User
-                  password: test123
-                  username: testuser2
+                  address: localhost
+                  mobileno: '6513371337'
+                  name: John Doe
+                  password: john@#1
+                  username: johndoe1993
       responses:
         '200':
           description: ''
@@ -422,11 +422,6 @@ paths:
       description: Get Data
       operationId: getData
       parameters:
-      - name: url
-        in: query
-        schema:
-          type: string
-          example: http://api.bass.com:8000/
       - name: ''
         in: header
         schema:
@@ -456,15 +451,15 @@ paths:
               properties:
                 password:
                   type: string
-                  example: valen
+                  example: dohn#@12
                 username:
                   type: string
-                  example: valen
+                  example: johndoe176
             examples:
               Create User:
                 value:
-                  password: valen
-                  username: valen
+                  password: dohn#@12
+                  username: johndoe176
       responses:
         '200':
           description: ''
@@ -480,7 +475,7 @@ paths:
         in: header
         schema:
           type: string
-          example: '{{api7_auth}}'
+          example: '{{api8_auth}}'
       responses:
         '200':
           description: ''
@@ -519,14 +514,14 @@ paths:
               properties:
                 pin:
                   type: string
-                  example: '1337'
+                  example: '1655'
                 username:
                   type: string
                   example: carlosjeff
             examples:
               Login:
                 value:
-                  pin: '1337'
+                  pin: '1655'
                   username: carlosjeff
       responses:
         '200':
@@ -546,14 +541,14 @@ paths:
               properties:
                 password:
                   type: string
-                  example: ''
+                  example: Yo|-Uj_271V*
                 username:
                   type: string
                   example: admin
             examples:
               User Login:
                 value:
-                  password: ''
+                  password: Yo|-Uj_271V*
                   username: admin
       responses:
         '200':
