@@ -10,9 +10,9 @@ Binderlabs API Security Simulator (BASS-Env) is a vulnerable API environment tha
 - Postman Client
 
 
-# Binderlabs API Security Simulator (BASS-Scanner)
+# Binderlabs API Security Scanner (BASS-Scanner)
 
-The BASS-Scanner toolkit is design to aid cyber security professionals in API Security Testing. BASS-Scanner will identify security flaws pertaining to OWASP Top 10 API Security and more. It will also significantly reduce testing time for security professionals such as a Penetration tester during an API Pentest engagement.
+Binderlabs API Security Simulator (BASS-Scanner) is design to aid cyber security professionals in API Security Testing. BASS-Scanner will identify security flaws pertaining to OWASP Top 10 API Security and more. It will also significantly reduce testing time for security professionals such as a Penetration tester during an API Pentest engagement.
 
 ## Requirements
 
