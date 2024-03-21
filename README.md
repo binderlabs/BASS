@@ -18,7 +18,6 @@ Login into mysql and create db name "bass"
 Import mysql database
 ```
 cd BASS/database
-
 mysql -u [username] -p [database_name] < bass.sql
 ```
 
