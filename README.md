@@ -7,7 +7,9 @@ BASS is built with ...<!-- fill in framework or programming language here -->, f
 
 ## Install
 
-Under construction…
+- PHP 
+- Mysql
+- Postman Client
 
 
 # BinderAPI Scanner
