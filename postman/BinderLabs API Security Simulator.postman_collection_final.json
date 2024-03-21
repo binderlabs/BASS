@@ -1,0 +1,1158 @@
+{
+	"info": {
+		"_postman_id": "5554e900-8657-421b-b98d-b7eacb7b9f99",
+		"name": "BinderLabs API Security Simulator",
+		"description": "Binderlabs API Security Simulator (BASS-Env) is a vulnerable API environment that is susceptible to the OWASP Top 10 API Security Risk – 2023. The environment was deliberately designed with API flaws and as a practice ground for cybersecurity professionals who wishes to hands-on their API hacking skills and enhance their knowledge in API Security testing domain.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19532609"
+	},
+	"item": [
+		{
+			"name": "API1:Broken Object Level Authorization",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var api1_id = jsonData.id;\r",
+									"console.log(\"API 1 User ID : \"+api1_id);\r",
+									"postman.setEnvironmentVariable(\"api1_id\",api1_id);\r",
+									"var reqData = JSON.parse(request.data);\r",
+									"var api1_username=reqData.username;\r",
+									"var api1_password=reqData.password;\r",
+									"var api1_auth=btoa(api1_username+\":\"+api1_password);\r",
+									"console.log(\"API 1 Auth : \"+api1_auth);\r",
+									"postman.setEnvironmentVariable(\"api1_auth\",api1_auth);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"carlos199\",\r\n    \"name\": \"Carlos Jeff X\",\r\n    \"email\": \"carlos188918@email.com\",\r\n    \"password\": \"aW2y#11wvf\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api1/user",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"value": "{{api1_auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api1/user/{{api1_id}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api1",
+								"user",
+								"{{api1_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var api1_id = jsonData.id;\r",
+									"console.log(\"API 1 User ID : \"+api1_id);\r",
+									"postman.setEnvironmentVariable(\"api1_id\",api1_id);\r",
+									"var reqData = JSON.parse(request.data);\r",
+									"var api1_username=reqData.username;\r",
+									"var api1_password=reqData.password;\r",
+									"var api1_auth=btoa(api1_username+\":\"+api1_password);\r",
+									"console.log(\"API 1 Auth : \"+api1_auth);\r",
+									"postman.setEnvironmentVariable(\"api1_auth\",api1_auth);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"value": "{{api1_auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"johndoe133\",\r\n    \"name\":\"John Doe Z\",\r\n    \"email\":\"johnzdoe@test111.com\",\r\n    \"password\":\"john123$!\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api1/user/9",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api1",
+								"user",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Broken Object Level Authorization\n\nThink securing your account ends with choosing a username and password? Guess again. Sometimes, one's identity lies not just in the name, but in the digits that follow. Probe into the URLs—secrets lurk where IDs overflow.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API2:Broken Authentication",
+			"item": [
+				{
+					"name": "User Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var api2_auth = jsonData.token;\r",
+									"console.log(\"API 2 Auth : \"+api2_auth);\r",
+									"postman.setEnvironmentVariable(\"api2_auth\",api2_auth);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"andrewgh@yahoo.com\",\r\n    \"password\":\"M6tny_DU\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api2/user/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api2",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"type": "text",
+								"value": "{{api2_auth}}"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api2/user/details",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api2",
+								"user",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Broken Authentication\n\nCredentials, credentials, who needs 'em? Sometimes a locked door is just a puzzle waiting to be solved. Dive deep into the Resources Folder; it may hold the master key to a realm beyond the login screen.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API3:Broken Object Property Level Authorization",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var reqData = JSON.parse(request.data);\r",
+									"var api3_username=reqData.username;\r",
+									"var api3_password=reqData.password;\r",
+									"var api3_auth=btoa(api3_username+\":\"+api3_password);\r",
+									"console.log(\"API 3 Auth : \"+api3_auth);\r",
+									"postman.setEnvironmentVariable(\"api3_auth\",api3_auth);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"John Doe Z\",\r\n    \"username\":\"john1337z\",\r\n    \"password\":\"demo11\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api3/user",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api3",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"value": "{{api3_auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api3/user/me",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api3",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Broken Object Property Level Authorization\n\nSafeguarding your coins in our digital vault is our top priority... supposedly. But what if the scales of balance tipped in your favor? Tinker with the inputs a little—sometimes, the best defenses are just illusions.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API4:Unrestricted Resource Consumption",
+			"item": [
+				{
+					"name": "Mobile Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobileno\":\"6512345678\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api4/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api4",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify OTP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var api4_key = jsonData.key;\r",
+									"console.log(\"API 4 Key : \"+api4_key);\r",
+									"postman.setEnvironmentVariable(\"api4_key\",api4_key);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"otp\":\"1337\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api4/otp/verify",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api4",
+								"otp",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"value": "{{api4_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api4/user",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api4",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Unrestricted Resource Consumption\n\nWe believe OTPs are a great way of authenticating users and secure too if implemented correctly!",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API5:Broken Function Level Authorization",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var api5_id = jsonData.id;\r",
+									"console.log(\"API 5 User ID : \"+api5_id);\r",
+									"postman.setEnvironmentVariable(\"api5_id\",api5_id);\r",
+									"var reqData = JSON.parse(request.data);\r",
+									"var api5_username=reqData.username;\r",
+									"var api5_password=reqData.password;\r",
+									"var api5_auth=btoa(api5_username+\":\"+api5_password);\r",
+									"console.log(\"API 5 Auth : \"+api5_auth);\r",
+									"postman.setEnvironmentVariable(\"api5_auth\",api5_auth);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"johndoe1993\",\r\n    \"password\":\"john@#1\",\r\n    \"name\":\"John Doe\",\r\n    \"address\":\"localhost\",\r\n    \"mobileno\":\"6513371337\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api5/user",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api5",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"value": "{{api5_auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api5/user/{{api5_id}}",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api5",
+								"user",
+								"{{api5_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Broken Function Level Authorization\n\nWhile you mingle among users as a newly registered member, remember: not all paths are created equal. Some routes are reserved for the eyes of the gatekeepers alone. Can you walk in the footsteps of an admin unnoticed, uncovering routes meant for the privileged few?",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API6:Unrestricted Access to Sensitive Business Flows",
+			"item": [
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"carlos1887@gmail.com\",\n    \"password\":\"password!123\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api6/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api6",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Y2FybG9zMTg4N0BnbWFpbC5jb206cGFzc3dvcmQhMTIz",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api6/user/87faf56f-5be6-4932-927b-16559d6755bd/details",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api6",
+								"user",
+								"87faf56f-5be6-4932-927b-16559d6755bd",
+								"details"
+							]
+						},
+						"description": "I am not kidding!"
+					},
+					"response": []
+				},
+				{
+					"name": "Item list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Y2FybG9zMTg4N0BnbWFpbC5jb206cGFzc3dvcmQhMTIz",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api6/marketplace/items",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api6",
+								"marketplace",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Y2FybG9zMTg4N0BnbWFpbC5jb206cGFzc3dvcmQhMTIz",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uuid\": \"87faf56f-5be6-4932-927b-16559d6755bd\",\n  \"purchases\": [\n    { \"item_id\": 1, \"quantity\": 2 },\n    { \"item_id\": 2, \"quantity\": 1 }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api6/marketplace/premium/purchase",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api6",
+								"marketplace",
+								"premium",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Unrestricted Access to Sensitive Business Flows\n\nImagine a realm where door guards rely on nothing but your attire to grant passage into the inner sanctums. Now envision those garments—your supposed credentials—dropping away. Without these defenses, dare to stride forth. Will the sentries stand oblivious, or will the gates close shut? Uncover if knowledge alone, a mere whisper of a UUID, can turn bystanders into infiltrators of forbidden archives.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API7: Server Side Request Forgery",
+			"item": [
+				{
+					"name": "Get Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/bass/api7",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api7"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A curious URL parameter stands as an invitation—a gateway beckoning you to journey not just across the web, but perhaps where the server's private eyes alone may gaze. Will you become the puppeteer in the shadows, pulling at the threads of this unrestricted portal? Forge your path wisely, and the server might just reveal its unseen face."
+		},
+		{
+			"name": "API8: Security misconfiguration",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var reqData = JSON.parse(request.data);\r",
+									"var api8_username=reqData.username;\r",
+									"var api8_password=reqData.password;\r",
+									"var api8_auth=btoa(api8_username+\":\"+api8_password);\r",
+									"console.log(\"API 8 Auth : \"+api8_auth);\r",
+									"postman.setEnvironmentVariable(\"api8_auth\",api8_auth);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"johndoe176\",\r\n    \"password\":\"dohn#@12\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api8/user",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api8",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"value": "{{api8_auth}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api8/user/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api8",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Key",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api8/user/key",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api8",
+								"user",
+								"key"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api8/user/logout",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api8",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Security Misconfiguration\n\nIn a world connected by APIs, the flow of data across domains is a common sight. But in this tapestry of requests and responses, not all threads are properly tied. Sometimes, just whispering the right words in the ears of headers can unveil secrets meant for trusted corners. Can you speak the API's language and entice it to disclose a little more than it should?",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API9: Improper Inventory Management",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"carlosjeff\",\r\n    \"pin\":\"1655\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api9/v2/user/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api9",
+								"v2",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Improper Assets Management\n\nGreat news! Our inventory system just got an upgrade with the launch of API v2, bringing you a smoother and more reliable experience when checking and managing stock levels. But don't worry, v1 is still around for those who prefer it 😉. Whether updating stock numbers or just browsing, why not explore both versions? Who knows, there might be some \"interesting\" differences waiting to be discovered between the two!",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "API10: Unsafe Consumption of APIs",
+			"item": [
+				{
+					"name": "User Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var api10_auth = jsonData.authkey;\r",
+									"console.log(\"API 10 Auth : \"+api10_auth);\r",
+									"postman.setEnvironmentVariable(\"api10_auth\",api10_auth);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"Yo|-Uj_271V*\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/bass/api10/user/login",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api10",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Secret",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization-Token",
+								"value": "{{api10_auth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{host}}/bass/api10/user/secret",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bass",
+								"api10",
+								"user",
+								"secret"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Injection\n\nThey say curiosity killed the cat, but in the digital realm, it's the lack of curiosity that lets the defenses collapse. You might be under the impression that without the right set of credentials, the doors will remain shut. Yet, the art of questioning what's presented at face value – perhaps through a login attempt with a twist – might just reveal more than expected. Dare to question, dare to experiment.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
