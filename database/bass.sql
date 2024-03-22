@@ -28,7 +28,7 @@ CREATE TABLE `a_p_i10_users` (
   `password` varchar(255) DEFAULT NULL,
   `authkey` char(32) DEFAULT NULL,
   `secret` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
