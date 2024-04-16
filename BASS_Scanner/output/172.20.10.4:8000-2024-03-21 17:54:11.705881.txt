@@ -1,0 +1,1 @@
+API7:2023 - Server Side Request Forgery (SSRF): SSRF detected in http://172.20.10.4:8000/bass/api7?url=https://a11dlmzsdsothlfof9dd.requestcatcher.com/3JUH

@@ -1,0 +1,4 @@
+API4:2023 - Unrestricted Resource Consumption: OTP has been cracked. 
+Endpoint: http://172.20.10.4:8000/bass/api4/otp/verify 
+HTTP Method: POST 
+OTP: 1872

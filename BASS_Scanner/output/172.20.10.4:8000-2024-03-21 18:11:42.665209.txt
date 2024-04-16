@@ -1,0 +1,1 @@
+API8:2023 - Security Misconfiguration: Strict-Transport-Security header not found, consider adding it.API8:2023 - Security Misconfiguration: X-Powered-By header detected, consider removing it.API9:2023 - Improper Inventory Management: Potential other/deprecated version of endpoint(s) discovered: http://172.20.10.4:8000/bass/api9/v1/user/login. (Tentative)

@@ -1,0 +1,5 @@
+API10:2023 - Unsafe Consumption of APIs: Potential SQL Injection Discovered in http://172.20.10.4:8000/bass/api10/user/login with: 
+Method: POST 
+Data: {'username': 'test\'"`', 'password': 'test'}API10:2023 - Unsafe Consumption of APIs: Potential SQL Injection Discovered in http://172.20.10.4:8000/bass/api10/user/login with: 
+Method: POST 
+Data: {'username': 'test', 'password': 'test\'"`'}

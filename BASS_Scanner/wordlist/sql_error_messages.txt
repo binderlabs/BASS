@@ -1,0 +1,6 @@
+postgresexception
+syntax error
+unterminated quoted string
+database error
+sql error
+sql syntax

@@ -1,0 +1,4 @@
+selenium==4.18.1
+requests==2.31.0
+termcolor==2.3.0
+alive-progress==3.1.5

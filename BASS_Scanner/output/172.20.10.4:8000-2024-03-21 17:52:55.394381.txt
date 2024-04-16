@@ -1,0 +1,1 @@
+API6:2023 - Unrestricted Access to Sensitive Business Flows: restricted endpoint http://172.20.10.4:8000/bass/api6/user/87faf56f-5be6-4932-927b-16559d6755bd/details can be accessed without Authorization/Cookie header(s).

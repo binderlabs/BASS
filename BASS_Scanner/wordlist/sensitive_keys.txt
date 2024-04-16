@@ -1,0 +1,7 @@
+credit_card
+password
+username
+AWS_ACCESS_KEY
+AccessKeyId
+AWS_ACCESS_KEY_ID
+SECRET_ACCESS_KEY

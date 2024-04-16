@@ -1,0 +1,1 @@
+API5:2023 - Broken Function Level Authorization: Potential all users data endpoint accessible in http://172.20.10.4:8000/bass/api5/users. (Tentative)

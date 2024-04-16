@@ -1,0 +1,1 @@
+API2:2023 - Broken Authentication: Weak password "password1!" cracked in http://172.20.10.4:8000/bass/api2/user/login.
