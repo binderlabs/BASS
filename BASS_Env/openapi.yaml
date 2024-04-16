@@ -1,0 +1,622 @@
+openapi: 3.0.3
+info:
+  title: BinderLabs API Security Simulator
+  description: Binderlabs API Security Simulator (BASS-Env) is a vulnerable API environment that is susceptible to the OWASP Top 10 API Security Risk – 2023. The environment was deliberately designed with API flaws and as a practice ground for cybersecurity professionals who wishes to hands-on their API hacking skills and enhance their knowledge in API Security testing domain.
+  version: 1.0.0
+  contact: {}
+servers:
+- url: http://{{host}}
+- url: '{{host}}'
+paths:
+  /bass/api1/user:
+    post:
+      tags:
+      - API1:Broken Object Level Authorization
+      summary: Create User
+      description: Create User
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: carlos188918@email.com
+                name:
+                  type: string
+                  example: Carlos Jeff X
+                password:
+                  type: string
+                  example: aW2y#11wvf
+                username:
+                  type: string
+                  example: carlos199
+            examples:
+              Create User:
+                value:
+                  email: carlos188918@email.com
+                  name: Carlos Jeff X
+                  password: aW2y#11wvf
+                  username: carlos199
+      responses:
+        '200':
+          description: ''
+      security:
+      - {}
+  /bass/api1/user/{api1_id}:
+    get:
+      tags:
+      - API1:Broken Object Level Authorization
+      summary: Get User
+      description: Get User
+      operationId: getUser
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api1_auth}}'
+      responses:
+        '200':
+          description: ''
+    parameters:
+    - name: api1_id
+      in: path
+      required: true
+      schema:
+        type: string
+  /bass/api1/user/9:
+    put:
+      tags:
+      - API1:Broken Object Level Authorization
+      summary: Update User
+      description: Update User
+      operationId: updateUser
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api1_auth}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: johnzdoe@test111.com
+                name:
+                  type: string
+                  example: John Doe Z
+                password:
+                  type: string
+                  example: john123$!
+                username:
+                  type: string
+                  example: johndoe133
+            examples:
+              Update User:
+                value:
+                  email: johnzdoe@test111.com
+                  name: John Doe Z
+                  password: john123$!
+                  username: johndoe133
+      responses:
+        '200':
+          description: ''
+      security:
+      - {}
+  /bass/api2/user/login:
+    post:
+      tags:
+      - API2:Broken Authentication
+      summary: User Login
+      description: User Login
+      operationId: userLogin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: andrewgh@yahoo.com
+                password:
+                  type: string
+                  example: M6tny_DU
+            examples:
+              User Login:
+                value:
+                  email: andrewgh@yahoo.com
+                  password: M6tny_DU
+      responses:
+        '200':
+          description: ''
+  /bass/api2/user/details:
+    get:
+      tags:
+      - API2:Broken Authentication
+      summary: Get Details
+      description: Get Details
+      operationId: getDetails
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api2_auth}}'
+      responses:
+        '200':
+          description: ''
+  /bass/api3/user:
+    post:
+      tags:
+      - API3:Broken Object Property Level Authorization
+      summary: Create User
+      description: Create User
+      operationId: createUser1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: John Doe Z
+                password:
+                  type: string
+                  example: demo11
+                username:
+                  type: string
+                  example: john1337z
+            examples:
+              Create User:
+                value:
+                  name: John Doe Z
+                  password: demo11
+                  username: john1337z
+      responses:
+        '200':
+          description: ''
+  /bass/api3/user/me:
+    get:
+      tags:
+      - API3:Broken Object Property Level Authorization
+      summary: Get User
+      description: Get User
+      operationId: getUser1
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api3_auth}}'
+      responses:
+        '200':
+          description: ''
+  /bass/api4/login:
+    post:
+      tags:
+      - API4:Unrestricted Resource Consumption
+      summary: Mobile Login
+      description: Mobile Login
+      operationId: mobileLogin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mobileno:
+                  type: string
+                  example: '6512345678'
+            examples:
+              Mobile Login:
+                value:
+                  mobileno: '6512345678'
+      responses:
+        '200':
+          description: ''
+  /bass/api4/otp/verify:
+    post:
+      tags:
+      - API4:Unrestricted Resource Consumption
+      summary: Verify OTP
+      description: Verify OTP
+      operationId: verifyOtp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                otp:
+                  type: string
+                  example: '1337'
+            examples:
+              Verify OTP:
+                value:
+                  otp: '1337'
+      responses:
+        '200':
+          description: ''
+  /bass/api4/user:
+    get:
+      tags:
+      - API4:Unrestricted Resource Consumption
+      summary: Get Details
+      description: Get Details
+      operationId: getDetails1
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api4_key}}'
+      responses:
+        '200':
+          description: ''
+  /bass/api5/user:
+    post:
+      tags:
+      - API5:Broken Function Level Authorization
+      summary: Create User
+      description: Create User
+      operationId: createUser2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  type: string
+                  example: localhost
+                mobileno:
+                  type: string
+                  example: '6513371337'
+                name:
+                  type: string
+                  example: John Doe
+                password:
+                  type: string
+                  example: john@#1
+                username:
+                  type: string
+                  example: johndoe1993
+            examples:
+              Create User:
+                value:
+                  address: localhost
+                  mobileno: '6513371337'
+                  name: John Doe
+                  password: john@#1
+                  username: johndoe1993
+      responses:
+        '200':
+          description: ''
+  /bass/api5/user/{api5_id}:
+    get:
+      tags:
+      - API5:Broken Function Level Authorization
+      summary: Get User
+      description: Get User
+      operationId: getUser2
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api5_auth}}'
+      responses:
+        '200':
+          description: ''
+    parameters:
+    - name: api5_id
+      in: path
+      required: true
+      schema:
+        type: string
+  /bass/api6/login:
+    post:
+      tags:
+      - API6:Unrestricted Access to Sensitive Business Flows
+      summary: User Login
+      description: User Login
+      operationId: userLogin1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: carlos1887@gmail.com
+                password:
+                  type: string
+                  example: password!123
+            examples:
+              User Login:
+                value:
+                  email: carlos1887@gmail.com
+                  password: password!123
+      responses:
+        '200':
+          description: ''
+  /bass/api6/user/87faf56f-5be6-4932-927b-16559d6755bd/details:
+    get:
+      tags:
+      - API6:Unrestricted Access to Sensitive Business Flows
+      summary: Get Details
+      description: I am not kidding!
+      operationId: getDetails2
+      responses:
+        '200':
+          description: ''
+  /bass/api6/marketplace/items:
+    get:
+      tags:
+      - API6:Unrestricted Access to Sensitive Business Flows
+      summary: Item list
+      description: Item list
+      operationId: itemList
+      responses:
+        '200':
+          description: ''
+  /bass/api6/marketplace/premium/purchase:
+    post:
+      tags:
+      - API6:Unrestricted Access to Sensitive Business Flows
+      summary: Purchase
+      description: Purchase
+      operationId: purchase
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                purchases:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      item_id:
+                        type: number
+                        example: 1
+                      quantity:
+                        type: number
+                        example: 2
+                  example:
+                  - item_id: 1
+                    quantity: 2
+                  - item_id: 2
+                    quantity: 1
+                uuid:
+                  type: string
+                  example: 87faf56f-5be6-4932-927b-16559d6755bd
+            examples:
+              Purchase:
+                value:
+                  purchases:
+                  - item_id: 1
+                    quantity: 2
+                  - item_id: 2
+                    quantity: 1
+                  uuid: 87faf56f-5be6-4932-927b-16559d6755bd
+      responses:
+        '200':
+          description: ''
+  /bass/api7:
+    get:
+      tags:
+      - 'API7: Server Side Request Forgery'
+      summary: Get Data
+      description: Get Data
+      operationId: getData
+      parameters:
+      - name: ''
+        in: header
+        schema:
+          type: string
+          example: ''
+      requestBody:
+        content:
+          text/plain:
+            examples:
+              Get Data:
+                value: ''
+      responses:
+        '200':
+          description: ''
+  /bass/api8/user:
+    post:
+      tags:
+      - 'API8: Security misconfiguration'
+      summary: Create User
+      description: Create User
+      operationId: createUser3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: dohn#@12
+                username:
+                  type: string
+                  example: johndoe176
+            examples:
+              Create User:
+                value:
+                  password: dohn#@12
+                  username: johndoe176
+      responses:
+        '200':
+          description: ''
+  /bass/api8/user/login:
+    get:
+      tags:
+      - 'API8: Security misconfiguration'
+      summary: User Login
+      description: User Login
+      operationId: userLogin2
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api8_auth}}'
+      responses:
+        '200':
+          description: ''
+  /bass/api8/user/key:
+    get:
+      tags:
+      - 'API8: Security misconfiguration'
+      summary: Get Key
+      description: Get Key
+      operationId: getKey
+      responses:
+        '200':
+          description: ''
+  /bass/api8/user/logout:
+    get:
+      tags:
+      - 'API8: Security misconfiguration'
+      summary: User Logout
+      description: User Logout
+      operationId: userLogout
+      responses:
+        '200':
+          description: ''
+  /bass/api9/v2/user/login:
+    post:
+      tags:
+      - 'API9: Improper Inventory Management'
+      summary: Login
+      description: Login
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pin:
+                  type: string
+                  example: '1655'
+                username:
+                  type: string
+                  example: carlosjeff
+            examples:
+              Login:
+                value:
+                  pin: '1655'
+                  username: carlosjeff
+      responses:
+        '200':
+          description: ''
+  /bass/api10/user/login:
+    post:
+      tags:
+      - 'API10: Unsafe Consumption of APIs'
+      summary: User Login
+      description: User Login
+      operationId: userLogin3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: Yo|-Uj_271V*
+                username:
+                  type: string
+                  example: admin
+            examples:
+              User Login:
+                value:
+                  password: Yo|-Uj_271V*
+                  username: admin
+      responses:
+        '200':
+          description: ''
+  /bass/api10/user/secret:
+    get:
+      tags:
+      - 'API10: Unsafe Consumption of APIs'
+      summary: Get Secret
+      description: Get Secret
+      operationId: getSecret
+      parameters:
+      - name: authorization-token
+        in: header
+        schema:
+          type: string
+          example: '{{api10_auth}}'
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes: {}
+tags:
+- name: API1:Broken Object Level Authorization
+  description: |-
+    Broken Object Level Authorization
+
+    Think securing your account ends with choosing a username and password? Guess again. Sometimes, one's identity lies not just in the name, but in the digits that follow. Probe into the URLs—secrets lurk where IDs overflow.
+- name: API2:Broken Authentication
+  description: |-
+    Broken Authentication
+
+    Credentials, credentials, who needs 'em? Sometimes a locked door is just a puzzle waiting to be solved. Dive deep into the Resources Folder; it may hold the master key to a realm beyond the login screen.
+- name: API3:Broken Object Property Level Authorization
+  description: |-
+    Broken Object Property Level Authorization
+
+    Safeguarding your coins in our digital vault is our top priority... supposedly. But what if the scales of balance tipped in your favor? Tinker with the inputs a little—sometimes, the best defenses are just illusions.
+- name: API4:Unrestricted Resource Consumption
+  description: |-
+    Unrestricted Resource Consumption
+
+    We believe OTPs are a great way of authenticating users and secure too if implemented correctly!
+- name: API5:Broken Function Level Authorization
+  description: |-
+    Broken Function Level Authorization
+
+    While you mingle among users as a newly registered member, remember: not all paths are created equal. Some routes are reserved for the eyes of the gatekeepers alone. Can you walk in the footsteps of an admin unnoticed, uncovering routes meant for the privileged few?
+- name: API6:Unrestricted Access to Sensitive Business Flows
+  description: |-
+    Unrestricted Access to Sensitive Business Flows
+
+    Imagine a realm where door guards rely on nothing but your attire to grant passage into the inner sanctums. Now envision those garments—your supposed credentials—dropping away. Without these defenses, dare to stride forth. Will the sentries stand oblivious, or will the gates close shut? Uncover if knowledge alone, a mere whisper of a UUID, can turn bystanders into infiltrators of forbidden archives.
+- name: 'API7: Server Side Request Forgery'
+  description: A curious URL parameter stands as an invitation—a gateway beckoning you to journey not just across the web, but perhaps where the server's private eyes alone may gaze. Will you become the puppeteer in the shadows, pulling at the threads of this unrestricted portal? Forge your path wisely, and the server might just reveal its unseen face.
+- name: 'API8: Security misconfiguration'
+  description: |-
+    Security Misconfiguration
+
+    In a world connected by APIs, the flow of data across domains is a common sight. But in this tapestry of requests and responses, not all threads are properly tied. Sometimes, just whispering the right words in the ears of headers can unveil secrets meant for trusted corners. Can you speak the API's language and entice it to disclose a little more than it should?
+- name: 'API9: Improper Inventory Management'
+  description: |-
+    Improper Assets Management
+
+    Great news! Our inventory system just got an upgrade with the launch of API v2, bringing you a smoother and more reliable experience when checking and managing stock levels. But don't worry, v1 is still around for those who prefer it 😉. Whether updating stock numbers or just browsing, why not explore both versions? Who knows, there might be some "interesting" differences waiting to be discovered between the two!
+- name: 'API10: Unsafe Consumption of APIs'
+  description: |-
+    Injection
+
+    They say curiosity killed the cat, but in the digital realm, it's the lack of curiosity that lets the defenses collapse. You might be under the impression that without the right set of credentials, the doors will remain shut. Yet, the art of questioning what's presented at face value – perhaps through a login attempt with a twist – might just reveal more than expected. Dare to question, dare to experiment.
+
