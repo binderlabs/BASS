@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/binderlabs/BASS/blob/main/BASS%20logo.png" alt="Alternative Text" width="600"/>
+</p>
+
 # Binderlabs API Security Simulator (BASS-Env)
 
 Binderlabs API Security Simulator (BASS-Env) is a vulnerable API environment that is susceptible to the OWASP Top 10 API Security Risk – 2023. The environment was deliberately designed with API flaws and as a practice ground for cybersecurity professionals who wishes to hands-on their API hacking skills and enhance their knowledge in API Security testing domain.
