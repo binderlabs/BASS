@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit65d9fc829c98efd576e88f35a789e11a
+class ComposerStaticInitd9cfc4aab2c9c100763283905fe08fe3
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -516,22 +516,19 @@ class ComposerStaticInit65d9fc829c98efd576e88f35a789e11a
         'App\\CustomClasses\\DatabaseMigration' => __DIR__ . '/../..' . '/app/CustomClasses/DatabaseMigration.php',
         'App\\CustomClasses\\Variables' => __DIR__ . '/../..' . '/app/CustomClasses/Variables.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API10UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API10UsersController.php',
         'App\\Http\\Controllers\\API1UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API1UsersController.php',
         'App\\Http\\Controllers\\API2UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API2UsersController.php',
-        'App\\Http\\Controllers\\API3CommentsController' => __DIR__ . '/../..' . '/app/Http/Controllers/API3CommentsController.php',
         'App\\Http\\Controllers\\API3UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API3UsersController.php',
         'App\\Http\\Controllers\\API4UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API4UsersController.php',
         'App\\Http\\Controllers\\API5UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API5UsersController.php',
-        'App\\Http\\Controllers\\API6UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API6UsersController.php',
-        'App\\Http\\Controllers\\API7UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API7UsersController.php',
+        'App\\Http\\Controllers\\API6AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/API6AuthController.php',
+        'App\\Http\\Controllers\\API6Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/API6Controller.php',
         'App\\Http\\Controllers\\API8UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API8UsersController.php',
         'App\\Http\\Controllers\\API9UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/API9UsersController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\FlagController' => __DIR__ . '/../..' . '/app/Http/Controllers/FlagController.php',
-        'App\\Http\\Controllers\\JustWeakTokenController' => __DIR__ . '/../..' . '/app/Http/Controllers/JustWeakTokenController.php',
         'App\\Http\\Controllers\\MarketplaceController' => __DIR__ . '/../..' . '/app/Http/Controllers/MarketplaceController.php',
-        'App\\Http\\Controllers\\StickyNotesController' => __DIR__ . '/../..' . '/app/Http/Controllers/StickyNotesController.php',
-        'App\\Http\\Controllers\\SurferController' => __DIR__ . '/../..' . '/app/Http/Controllers/SurferController.php',
+        'App\\Http\\Controllers\\SsrfController' => __DIR__ . '/../..' . '/app/Http/Controllers/SsrfController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\BasicAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/BasicAuth.php',
@@ -542,20 +539,17 @@ class ComposerStaticInit65d9fc829c98efd576e88f35a789e11a
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\API10Users' => __DIR__ . '/../..' . '/app/Models/API10Users.php',
         'App\\Models\\API1Users' => __DIR__ . '/../..' . '/app/Models/API1Users.php',
         'App\\Models\\API2Users' => __DIR__ . '/../..' . '/app/Models/API2Users.php',
         'App\\Models\\API3Comments' => __DIR__ . '/../..' . '/app/Models/API3Comments.php',
         'App\\Models\\API3Users' => __DIR__ . '/../..' . '/app/Models/API3Users.php',
         'App\\Models\\API4Users' => __DIR__ . '/../..' . '/app/Models/API4Users.php',
         'App\\Models\\API5Users' => __DIR__ . '/../..' . '/app/Models/API5Users.php',
-        'App\\Models\\API6Users' => __DIR__ . '/../..' . '/app/Models/API6Users.php',
-        'App\\Models\\API7Users' => __DIR__ . '/../..' . '/app/Models/API7Users.php',
         'App\\Models\\API8Users' => __DIR__ . '/../..' . '/app/Models/API8Users.php',
         'App\\Models\\API9Users' => __DIR__ . '/../..' . '/app/Models/API9Users.php',
         'App\\Models\\Flags' => __DIR__ . '/../..' . '/app/Models/Flags.php',
         'App\\Models\\Item' => __DIR__ . '/../..' . '/app/Models/Item.php',
-        'App\\Models\\JustWeakTokens' => __DIR__ . '/../..' . '/app/Models/JustWeakTokens.php',
-        'App\\Models\\StickyNotes' => __DIR__ . '/../..' . '/app/Models/StickyNotes.php',
         'App\\Models\\Transaction' => __DIR__ . '/../..' . '/app/Models/Transaction.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -677,6 +671,7 @@ class ComposerStaticInit65d9fc829c98efd576e88f35a789e11a
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\ItemsTableSeeder' => __DIR__ . '/../..' . '/database/seeders/ItemsTableSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
@@ -3139,6 +3134,7 @@ class ComposerStaticInit65d9fc829c98efd576e88f35a789e11a
         'Mockery\\CountValidator\\AtLeast' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtLeast.php',
         'Mockery\\CountValidator\\AtMost' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/AtMost.php',
         'Mockery\\CountValidator\\CountValidatorAbstract' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php',
+        'Mockery\\CountValidator\\CountValidatorInterface' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/CountValidatorInterface.php',
         'Mockery\\CountValidator\\Exact' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exact.php',
         'Mockery\\CountValidator\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/CountValidator/Exception.php',
         'Mockery\\Exception' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Exception.php',
@@ -3825,6 +3821,7 @@ class ComposerStaticInit65d9fc829c98efd576e88f35a789e11a
         'PharIo\\Manifest\\ManifestLoader' => __DIR__ . '/..' . '/phar-io/manifest/src/ManifestLoader.php',
         'PharIo\\Manifest\\ManifestLoaderException' => __DIR__ . '/..' . '/phar-io/manifest/src/exceptions/ManifestLoaderException.php',
         'PharIo\\Manifest\\ManifestSerializer' => __DIR__ . '/..' . '/phar-io/manifest/src/ManifestSerializer.php',
+        'PharIo\\Manifest\\NoEmailAddressException' => __DIR__ . '/..' . '/phar-io/manifest/src/exceptions/NoEmailAddressException.php',
         'PharIo\\Manifest\\PhpElement' => __DIR__ . '/..' . '/phar-io/manifest/src/xml/PhpElement.php',
         'PharIo\\Manifest\\PhpExtensionRequirement' => __DIR__ . '/..' . '/phar-io/manifest/src/values/PhpExtensionRequirement.php',
         'PharIo\\Manifest\\PhpVersionRequirement' => __DIR__ . '/..' . '/phar-io/manifest/src/values/PhpVersionRequirement.php',
@@ -5539,9 +5536,9 @@ class ComposerStaticInit65d9fc829c98efd576e88f35a789e11a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit65d9fc829c98efd576e88f35a789e11a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit65d9fc829c98efd576e88f35a789e11a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit65d9fc829c98efd576e88f35a789e11a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd9cfc4aab2c9c100763283905fe08fe3::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd9cfc4aab2c9c100763283905fe08fe3::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitd9cfc4aab2c9c100763283905fe08fe3::$classMap;
 
         }, null, ClassLoader::class);
     }
